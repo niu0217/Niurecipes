@@ -62,8 +62,8 @@ class Channel : boost::noncopyable
 
   EventLoop* loop_;
   const int  fd_;
-  int        events_;
-  int        revents_;
+  int        events_; // 它关心的事件
+  int        revents_; // 目前活跃的事件
   int        index_; // used by Poller.
 
   EventCallback readCallback_;

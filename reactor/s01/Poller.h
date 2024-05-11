@@ -51,8 +51,8 @@ class Poller : boost::noncopyable
   typedef std::map<int, Channel*> ChannelMap;
 
   EventLoop* ownerLoop_;
-  PollFdList pollfds_;
-  ChannelMap channels_;
+  PollFdList pollfds_;  // 将pollfd缓存起来，不用每次都临时构造
+  ChannelMap channels_; // fd和Channel*的映射关系
 };
 
 }
