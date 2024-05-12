@@ -53,11 +53,11 @@ void EventLoop::loop()
   while (!quit_)
   {
     activeChannels_.clear();
-    poller_->poll(kPollTimeMs, &activeChannels_);
+    poller_->poll(kPollTimeMs, &activeChannels_); // activeChannels_在这里被赋值
     for (ChannelList::iterator it = activeChannels_.begin();
         it != activeChannels_.end(); ++it)
     {
-      (*it)->handleEvent();
+      (*it)->handleEvent(); // 通过回调函数处理各种事件
     }
   }
 

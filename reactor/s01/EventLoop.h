@@ -60,7 +60,7 @@ class EventLoop : boost::noncopyable
   bool looping_; /* atomic */
   bool quit_; /* atomic */
   const pid_t threadId_;
-  boost::scoped_ptr<Poller> poller_;
+  boost::scoped_ptr<Poller> poller_; // 最好使用 std::unique_ptr
   ChannelList activeChannels_;
 };
 
