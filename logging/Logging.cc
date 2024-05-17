@@ -40,10 +40,11 @@ const char* strerror_tl(int savedErrno)
 
 Logger::LogLevel initLogLevel()
 {
-  if (::getenv("MUDUO_LOG_TRACE"))
-    return Logger::TRACE;
-  else
-    return Logger::DEBUG;
+  // if (::getenv("MUDUO_LOG_TRACE"))
+  //   return Logger::TRACE;
+  // else
+  //   return Logger::DEBUG;
+  return Logger::TRACE;
 }
 
 Logger::LogLevel g_logLevel = initLogLevel();

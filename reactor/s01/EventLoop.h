@@ -60,7 +60,12 @@ class EventLoop : boost::noncopyable
   bool looping_; /* atomic */
   bool quit_; /* atomic */
   const pid_t threadId_;
+  // Poller和EventLoop是组合关系
+  // Poller的生存周期由EventLoop来控制
   boost::scoped_ptr<Poller> poller_; // 最好使用 std::unique_ptr
+  // Channel和EventLoop是聚合关系
+  // 一个EventLoop可以有多个Channel，但是不管理它的生存周期
+  // Channel的生存周期由TcpConnection、Acceptor、Connector等类控制
   ChannelList activeChannels_;
 };
 
