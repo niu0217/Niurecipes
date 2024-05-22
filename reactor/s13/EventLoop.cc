@@ -95,6 +95,7 @@ void EventLoop::loop()
     {
       (*it)->handleEvent(pollReturnTime_);
     }
+    LOG_INFO<<"one event deal down...";
     doPendingFunctors();
   }
 
@@ -132,6 +133,7 @@ void EventLoop::queueInLoop(const Functor& cb)
 
   if (!isInLoopThread() || callingPendingFunctors_)
   {
+    LOG_INFO<<"EventLoop::queueInLoop   callingPendingFunctors_ = "<<callingPendingFunctors_;
     wakeup();
   }
 }

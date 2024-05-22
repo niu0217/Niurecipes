@@ -27,7 +27,7 @@ void run1()
 {
   g_flag = 1;
   printf("run1(): pid = %d, flag = %d\n", getpid(), g_flag);
-  g_loop->runInLoop(run2);
+  g_loop->runInLoop(run2);  // 直接执行run2
   g_flag = 2;
 }
 

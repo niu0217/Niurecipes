@@ -44,7 +44,7 @@ Logger::LogLevel initLogLevel()
   //   return Logger::TRACE;
   // else
   //   return Logger::DEBUG;
-  return Logger::TRACE;
+  return Logger::INFO;
 }
 
 Logger::LogLevel g_logLevel = initLogLevel();

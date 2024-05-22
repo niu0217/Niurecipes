@@ -12,6 +12,9 @@ void timeout()
   g_loop->quit();
 }
 
+// timerfd_create把时间变成了一个文件描述符，该“文件”在定时器超时
+// 的那一刻变得可读，这样就可以很方便的融入到select/poll框架中，用
+// 统一的方式来处理IO事件和超时事件，这也正是Reactor模式的长处.
 int main()
 {
   muduo::EventLoop loop;
